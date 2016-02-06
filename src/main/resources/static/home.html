@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <title>Net Credit</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+    <link href="justified-nav.css" rel="stylesheet">
+    <script src="jquery-1.10.2.js"></script>
+    <script src="register.js"></script>
+</head>
+
+<body>
+
+<div class="container" id="formRegist" style="display: block">
+    <div class="jumbotron" style="padding-bottom:0px;">
+        <h2>Net Credit </h2>
+    </div>
+    <form class="form-signin" role="form">
+        <input type="name" id="name" class="form-control" placeholder="Name" required="" autofocus="">
+        <input type="password" id="password" class="form-control" placeholder="password" required="" autofocus="">
+        <input type="name" id="phone" class="form-control" placeholder="phone" required="" autofocus="">
+        <input type="name" id="birthday" class="form-control" placeholder="birthday" required="" autofocus="">
+        <input type="number" id="monthSalary" class="form-control" placeholder="monthSalary" required="">
+        <input type="number" id="currentLiability" class="form-control" placeholder="currentLiability" required="">
+        <button type="button" class="btn btn-lg btn-primary btn-block" onclick="onClickRegister()">Register</button>
+        <button type="button" class="btn btn-lg btn-primary btn-block" onclick="showSingUP()">SingUP </button>
+    </form>
+
+</div>
+
+<div id="viewResult" style="display: none">
+    <h3> Hello Dear </h3>
+    <input type="name" id="vname" class="form-control" placeholder="Name" required="" autofocus="" >
+    <input type="password" id="vpassword" class="form-control" placeholder="password" required="" autofocus="" readonly >
+    <input type="name" id="vphone" class="form-control" placeholder="phone" required="" autofocus="">
+    <input type="name" id="vbirthday" class="form-control" placeholder="birthday" required="" autofocus="" readonly>
+    <input type="number" id="vmonthSalary" class="form-control" placeholder="monthSalary" required="" readonly>
+    <input type="number" id="vcurrentLiability" class="form-control" placeholder="currentLiability" required="" readonly>
+    <h2>Your Posible Ability is : </h2><div id="maxAbility"></div>
+    <button type="button" class="btn btn-lg btn-primary btn-block" onclick="updateParam()">UpdateParama</button>
+</div>
+
+
+
+<div class="container" id="singUp" style="display: none">
+    <div class="jumbotron" style="padding-bottom:0px;">
+        <h2>Net Credit </h2>
+    </div>
+    <form class="form-signin" role="form">
+        <input type="name" id="nameS" class="form-control" placeholder="Name" required="" autofocus="">
+        <input type="password" id="passwordS" class="form-control" placeholder="Password" required="" autofocus="">
+        <button type="button" class="btn btn-lg btn-primary btn-block" onclick="onSingUp()">Sing Up</button>
+        <button type="button" class="btn btn-lg btn-primary btn-block" onclick="backToRegster()">Register</button>
+    </form>
+</div>
+
+
+
+
+</body></html>
