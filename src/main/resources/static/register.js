@@ -82,5 +82,13 @@ function calculateMaxPosibility(birth,monthsalary,currentAvail){
 
 
 function updateParam(){
+    var updateObj = {};
+    updateObj.name = document.getElementById("vname").value;
+    updateObj.password = document.getElementById("vpassword").value;
+    updateObj.phone = document.getElementById("vphone").value;
+    updateObj.birthday =  document.getElementById("vbirthday").value;
+    updateObj.monthSalary =  document.getElementById("vmonthSalary").value;
+    updateObj.currentLiability = document.getElementById("vcurrentLiability").value;
+    callAjax(updateObj,"/netcredit/update");
     //TODO
 }

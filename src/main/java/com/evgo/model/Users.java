@@ -3,6 +3,8 @@ package com.evgo.model;
 import org.springframework.context.annotation.Configuration;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Date;
 
 /**
  * Created by root_pc on 2/6/2016.
@@ -12,15 +14,15 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({
         @NamedQuery(name="findUsers",
-                query="SELECT e.id, e.name, e.password, e.phone, e.birthday, e.monthSalary, e.currentLiability " +
-                        "FROM Users e " +
+                query= "FROM Users e " +
                         "WHERE e.name = :name AND " +
                         "      e.password = :pass")
+
 })
-public class Users {
+public class Users implements Serializable {
 
         @Id
-      /*  @GeneratedValue(strategy = GenerationType.AUTO)*/
+        @GeneratedValue
         private int id;
 
         private String name;
@@ -29,11 +31,11 @@ public class Users {
 
         private String phone;
 
-        private String birthday;
+        private Date birthday;
 
-        private String monthSalary;
+        private int monthSalary;
 
-        private String currentLiability;
+        private int currentLiability;
 
         public Users() {}
 
@@ -69,27 +71,27 @@ public class Users {
             this.phone = phone;
         }
 
-        public String getBirthday() {
+        public Date getBirthday() {
             return birthday;
         }
 
-        public void setBirthday(String birthday) {
+        public void setBirthday(Date birthday) {
             this.birthday = birthday;
         }
 
-        public String getMonthSalary() {
+        public int getMonthSalary() {
             return monthSalary;
         }
 
-        public void setMonthSalary(String monthSalary) {
+        public void setMonthSalary(int monthSalary) {
             this.monthSalary = monthSalary;
         }
 
-        public String getCurrentLiability() {
+        public int getCurrentLiability() {
             return currentLiability;
         }
 
-        public void setCurrentLiability(String currentLiability) {
+        public void setCurrentLiability(int currentLiability) {
             this.currentLiability = currentLiability;
         }
 }
