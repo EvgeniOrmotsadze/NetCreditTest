@@ -5,10 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
+import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.util.concurrent.ExecutionException;
 
@@ -39,19 +36,7 @@ public class UserDao {
     }
 
 
-    @Transactional
-    public void getUser(Users user){
-        EntityManagerFactory factory = sessionFactoryBean.getEntityManagerFactory();
-        EntityManager manager = factory.createEntityManager();
-        EntityTransaction et =  manager.getTransaction();
-        et.begin();
-        System.out.println("begin");
-        System.out.println("user : " + user.toString());
-        manager.persist(user);
-        System.out.println("end");
-        et.commit();
-        manager.close();
-    }
+
 
 
     @Transactional
@@ -84,8 +69,8 @@ public class UserDao {
                     .setParameter("name", name)
                     .setParameter("pass", pass)
                     .getSingleResult();
-        }catch (Exception ex){
-            ex.printStackTrace();
+        }catch (NoResultException ex){
+            throw ex;
         }
         return gu;
     }

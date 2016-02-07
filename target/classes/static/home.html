@@ -6,11 +6,8 @@
     <title>Net Credit</title>
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
-   <!-- <link href="justified-nav.css" rel="stylesheet">-->
-    <script src="angular.min.js"></script>
-   <!-- <script src="jquery-1.10.2.js"></script>-->
-  <!--  <script src="register.js"></script>-->
-    <script src="controller.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/controller.js"></script>
 </head>
 
 <body ng-controller="myController">
@@ -19,15 +16,17 @@
         <button type="button" class="btn btn-lg btn-primary btn-block" ng-click="logOut()">Logout</button>
     </div>
 
-    <div class="container"  ng-show="validation">Incorrect Register Params </div>
+    <div class="container"  ng-show="validation">{{validParam}} </div>
     <div class="container" id="formRegist" ng-show="showRegister" >
         <div class="jumbotron" style="padding-bottom:0px;">
             <h2>Net Credit </h2>
         </div>
         <form class="form-signin" role="form">
-            <input type="name" id="name" ng-model="Name" class="form-control" placeholder="Name" required="" autofocus="">
-            <input type="password" id="password" ng-model="Password"  class="form-control" placeholder="password" required="" autofocus="">
-            <input type="name" id="phone" ng-model="Phone" class="form-control" placeholder="phone" required="" autofocus="">
+            <div style="color: red">*</div>
+            <input type="name" id="name" ng-model="Name" class="form-control" placeholder="Name" required autofocus="">
+            <div style="color: red">*</div>
+            <input type="password" id="password" ng-model="Password"  class="form-control" placeholder="password" required autofocus="">
+            <input type="name" id="phone" ng-model="Phone" class="form-control" placeholder="phone" required=""  required autofocus="">
             <input type="Date" id="birthday" ng-model="Birthday"class="form-control" placeholder="birthday" required="" autofocus="">
             <input type="number" id="monthSalary" ng-model="MonthSalary" class="form-control" placeholder="monthSalary" required="">
             <input type="number" id="currentLiability" ng-model="CurreentLia" class="form-control" placeholder="currentLiability" required="">
