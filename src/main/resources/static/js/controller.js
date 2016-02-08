@@ -56,7 +56,6 @@ angular.module("myApp", []).controller('myController', function ($scope, $http) 
     $scope.onSingUp = function (){
         $http.post('/netcredit/sing',{name:$scope.nameS, password:$scope.passwordS})
             .success(function (response) {
-                if(response != null) {
                     console.log('result', response);
                     $scope.showRegister = false;
                     $scope.showSingIn = false;
@@ -69,12 +68,10 @@ angular.module("myApp", []).controller('myController', function ($scope, $http) 
                     $scope.vmonthSalary = response.monthSalary;
                     $scope.vcurrentLiability = response.currentLiability;
                     $scope.MaxAvail = "Your Max Available Amount : " + calculateMaxAvail(response);
-                }else{
-                    $scope.validation = true;
-                    $scope.validParam = "User Doesn't Exist. Please Start  Registration";
-                }
             })
             .error(function (error) {
+                $scope.validation = true;
+                $scope.validParam = "User Doesn't Exist. Please Start  Registration";
                 console.log(error);
             });
     };
